@@ -62,8 +62,8 @@ class Plugin
 
             foreach ($func_names as $name)
             {
-                if (function_exists ($name =  $self->Prefix      .  $name))
-                    register_activation_hook ($self->file_path (),  $name);
+                if (function_exists ($name =  $self->Prefix      . $name))
+                    register_activation_hook ($self->file_path (), $name);
             }
 
             if (function_exists ($main = $self->Prefix . '_main')) $main ();

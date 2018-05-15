@@ -2,7 +2,7 @@
 
 function on_fadegal_single_collection_load ($page)
 {
-    $screen = get_current_screen ();
+    $screen = $page->screen ();
 
     $screen->add_help_tab (array(
         'id'      =>    'collections-overview',
@@ -11,7 +11,7 @@ function on_fadegal_single_collection_load ($page)
         '<p>Media Collections are groups of media files along with their meta data.</p>',
         ));
 
-    $content  = '<p><strong>' . __( 'For more information:', 'fadegal' ) . '</strong></p>';
+    $content  = '<p><strong>' . __( 'For more information:', 'fadegal' ) . '</strong></p>'   ;
     $content .= '<p><a href="https://bitbucket.org/softtech-bg/fadegal/">Source Code</a></p>';
 
     $screen->set_help_sidebar ($content);
