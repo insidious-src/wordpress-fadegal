@@ -50,8 +50,10 @@ class Widget extends \WP_Widget
 
         parent::__construct ($this->WidgetID, $name, array(
             'description'                 => $desc,
-            'classname'                   => $this->m_meta['WidgetClass'] ? $this->WidgetClass :
-                                             $this->m_meta['WidgetClass'] = 'widget_' . $this->WidgetID,
+            'classname'                   => $this->m_meta['WidgetClass'] ?
+                                             $this->WidgetClass :
+                                             $this->m_meta['WidgetClass'] =
+                                                'widget_' . $this->WidgetID,
             'customize_selective_refresh' => true
             ));
 
@@ -90,7 +92,8 @@ class Widget extends \WP_Widget
     { return $sidebar === '' ? get_option ('widget_' . $this->WidgetID) : array(); }
 
     public function get_field_attr   (string $field)
-    { return 'id="' . $this->get_field_id ($field) . '" name="' . $this->get_field_name ($field) . '"'; }
+    { return 'id="'     . $this->get_field_id   ($field) .
+             '" name="' . $this->get_field_name ($field) . '"'; }
 
     public function update ($new_instance, $old_instance)
     {

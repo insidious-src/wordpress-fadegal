@@ -43,7 +43,8 @@ class Plugin
     public function __construct (string $path)
     {
         $self                   = &$this;
-        $self->m_file_path      =   file_exists   ($path)  ? $path : wp_die ('plugin file not found!');
+        $self->m_file_path      =   file_exists   ($path)  ? $path :
+                                                             wp_die ('plugin file not found!');
         $self->m_dir            =   dirname       ($self->m_file_path);
         $self->m_meta           =   get_file_data ($path   , $self->m_meta,  'plugin');
         $self->m_meta['Prefix'] =   str_replace   ('-', '_', $self->TextDomain);

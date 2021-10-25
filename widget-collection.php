@@ -23,6 +23,13 @@ class MediaCollection extends Widget
                           __('Media Collection', 'fadegal'),
                           __('Show a selected media collection', 'fadegal'),
                              $default_options);
+
+        $self = &$this;
+
+        add_action ('wp_enqueue_scripts', function () use ($self)
+        {
+            if (function_exists ($scripts = $self->Prefix . '_scripts')) $scripts ();
+        });
     }
 
     /*
